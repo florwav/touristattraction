@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tourist Attractions in Indonesia</title>
+
+<!-- ==========================================================================
+   KODE CSS ASLI TEMANMU
+   ========================================================================== -->
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/* Navbar */
+nav{
+    background:#008080;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    padding:15px 50px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Header */
+header{
+    text-align:center;
+    padding:40px;
+    background:white;
+}
+
+header h1{
+    color:#008080;
+}
+
+/* Slideshow */
+.slideshow-container{
+    width:90%;
+    margin:20px auto;
+}
+
+.slide{
+    display:none;
+}
+
+.slide img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* Search */
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    width:60%;
+    padding:12px;
+    border:2px solid #008080;
+    border-radius:25px;
+}
+
+/* Cards */
+.container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 8px rgba(0,0,0,.2);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.content{
+    padding:15px;
+}
+
+.content h2{
+    color:#008080;
+    margin-bottom:10px;
+}
+
+.content button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    background:#008080;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* Map */
+#map{
+    width:90%;
+    margin:40px auto;
+    text-align:center;
+}
+
+#touristMap{
+    width:100%;
+    height:450px;
+    border:none;
+    margin-top:20px;
+}
+
+/* Back To Top */
+#backToTop{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    border:none;
+    background:#008080;
+    color:white;
+    font-size:20px;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">Indonesia Tourism</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#map">Maps</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<header>
+    <h1>Tourist Attractions in Indonesia</h1>
+    <p>Explore Indonesia's Most Beautiful Destinations</p>
+</header>
+
+<!-- Slideshow -->
+<div class="slideshow-container">
+
+    <div class="slide">
+        <img src="images/rajaampat.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="images/borobudur.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="images/bromo.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="images/labuanbajo.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="images/tobalake.jpg">
+    </div>
+
+</div>
+
+<!-- Search -->
+<div class="search-box">
+    <input type="text" id="searchInput"
+        placeholder="Search tourist attractions...">
+</div>
+
+<!-- Tourist Cards -->
+<section id="destinations" class="container">
+
+    <div class="card">
+        <img src="images/rajaampat.jpg">
+        <div class="content">
+            <h2>Raja Ampat</h2>
+            <p><b>Location:</b> Raja Ampat Regency, Southwest Papua, Indonesia</p>
+            <p>Famous for its beautiful islands and marine biodiversity.</p>
+            <!-- Diubah ke koordinat geografis asli tempat wisata -->
+            <button onclick="changeMap('-0.2317,130.5186')">
+                View on Map
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/borobudur.jpg">
+        <div class="content">
+            <h2>Borobudur Temple</h2>
+            <p><b>Location:</b> Magelang, Central Java, Indonesia</p>
+            <p>The largest Buddhist temple in the world.</p>
+            <button onclick="changeMap('-7.6079,110.2038')">
+                View on Map
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/bromo.jpg">
+        <div class="content">
+            <h2>Mount Bromo</h2>
+            <p><b>Location:</b> East Java, Indonesia</p>
+            <p>Popular volcano with spectacular sunrise views.</p>
+            <button onclick="changeMap('-7.9425,112.9530')">
+                View on Map
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/labuanbajo.jpg">
+        <div class="content">
+            <h2>Labuan Bajo</h2>
+            <p><b>Location:</b> East Nusa Tenggara, Indonesia</p>
+            <p>Gateway to Komodo National Park.</p>
+            <button onclick="changeMap('-8.4539,119.8892')">
+                View on Map
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/tobalake.jpg">
+        <div class="content">
+            <h2>Lake Toba</h2>
+            <p><b>Location:</b> North Sumatra, Indonesia</p>
+            <p>The largest volcanic lake in Southeast Asia.</p>
+            <button onclick="changeMap('2.6845,98.8756')">
+                View on Map
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<!-- Google Maps Alternatif (OpenStreetMap Bebas Blokir) -->
+<section id="map">
+    <h2>Tourist Location Map</h2>
+
+    <!-- Menggunakan OpenStreetMap Embed agar tidak ditolak browser -->
+    <iframe
+        id="touristMap"
+        src="https://google.com">
+    </iframe>
+</section>
+
+<!-- Back To Top -->
+<button id="backToTop">↑</button>
+
+
+<!-- ==========================================================================
+   KODE JAVASCRIPT GABUNGAN YANG SUDAH DIPERBAIKI LOKASINYA
+   ========================================================================== -->
+<script>
+/* SLIDESHOW */
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for(let i=0; i<slides.length; i++){
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if(slideIndex > slides.length){
+        slideIndex = 1;
+    }
+    if (slides[slideIndex-1]) {
+        slides[slideIndex-1].style.display = "block";
+    }
+    setTimeout(showSlides,3000);
+}
+
+/* SEARCH */
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+
+searchInput.addEventListener("keyup", function(){
+    let filter = searchInput.value.toLowerCase();
+    cards.forEach(card=>{
+        let title = card.querySelector("h2").textContent.toLowerCase();
+        if(title.includes(filter)){
+            card.style.display="block";
+        } else {
+            card.style.display="none";
+        }
+    });
+});
+
+/* PETA BEBAS REFUSE / BLOKIR */
+function changeMap(coordinates){
+    // Menggunakan server penampil koordinat global Google Maps yang stabil untuk iframe
+    document.getElementById("touristMap").src = 
+    `https://google.com{coordinates}&t=&z=12&ie=UTF8&iwloc=&output=embed`;
+}
+
+/* BACK TO TOP */
+const backToTop = document.getElementById("backToTop");
+window.onscroll = function(){
+    if(document.documentElement.scrollTop > 300){
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+};
+
+backToTop.addEventListener("click", function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+});
+</script>
+
+</body>
+</html>
